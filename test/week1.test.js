@@ -29,7 +29,7 @@ describe.only("generateInitials", () => {
   });
 });
 
-describe("addVAT", () => {
+describe.only("addVAT", () => {
   test("adds a VAT of 20% to a price of 100", () => {
     expect(addVAT(100, 20)).toBe(120);
   });
