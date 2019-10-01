@@ -5,8 +5,12 @@ function capitalize(word) {
 function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
-  // Add your code here!
+  const fN = firstName.charAt(0);
+  const lN = lastName.charAt(0);
+   let initials = fN + "." + lN;
+  return initials
 }
+
 
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
