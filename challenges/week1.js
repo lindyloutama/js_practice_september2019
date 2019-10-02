@@ -9,23 +9,32 @@ function generateInitials(firstName, lastName) {
   const lN = lastName.charAt(0);
    let initials = fN + "." + lN;
   return initials
-}
+}  
 
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-    return ((vatRate/100)*originalPrice) + originalPrice;
+    return ((vatRate/100) * originalPrice) + originalPrice;
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // Add your code here!
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  // Add your code here!
+  let position;
+  let length;
+
+  if(str.length % 2 == 1) {
+      position = str.length / 2;
+      length = 1;
+  } else {
+      position = str.length / 2 - 1;
+      length = 2;
+  }
+  return str.substring(position, position + length)
 }
 
 function reverseWord(word) {
