@@ -14,7 +14,8 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-    return ((vatRate/100) * originalPrice) + originalPrice;
+    const rate = ((vatRate/100) * originalPrice) + originalPrice;
+    return + rate.toFixed(2)
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -39,12 +40,18 @@ function getMiddleCharacter(str) {
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  return + word.reverse();
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  var words = [];
+  words = words.match(/\S+/g);
+  var result = "";
+  for (var i = 0; i < words.length; i++) {
+     result += words[i].split('').reverse().join('') + " ";
+  }
+  return result
 }
 
 function countLinuxUsers(users) {
