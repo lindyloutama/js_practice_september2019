@@ -11,7 +11,7 @@ const {
   simpleFizzBuzz
 } = require("../challenges/week1");
 
-describe.only("capitalize", () => {
+describe("capitalize", () => {
   test("returns a capitalized string", () => {
     expect(capitalize("hello")).toBe("Hello");
     expect(capitalize("the quick fox")).toBe("The quick fox");
@@ -23,13 +23,13 @@ describe.only("capitalize", () => {
   });
 });
 
-describe.only("generateInitials", () => {
+describe("generateInitials", () => {
   test("returns the initials of a firstname and surname", () => {
     expect(generateInitials("Frederic", "Bonneville")).toBe("F.B");
   });
 });
 
-describe.only("addVAT", () => {
+describe("addVAT", () => {
   test("adds a VAT of 20% to a price of 100", () => {
     expect(addVAT(100, 20)).toBe(120);
   });
@@ -47,7 +47,7 @@ describe.only("addVAT", () => {
   });
 });
 
-describe("getSalePrice", () => {
+describe.only("getSalePrice", () => {
   test("reduces a price of 100 by 50%", () => {
     expect(getSalePrice(100, 50)).toBe(50);
   });
@@ -65,7 +65,7 @@ describe("getSalePrice", () => {
   });
 });
 
-describe.only("getMiddleCharacter", () => {
+describe("getMiddleCharacter", () => {
   test("returns the middle character from a string of odd length", () => {
     expect(getMiddleCharacter("bears!!!!")).toBe("s");
   });
@@ -75,7 +75,7 @@ describe.only("getMiddleCharacter", () => {
   });
 });
 
-describe.only("reverseWord", () => {
+describe("reverseWord", () => {
   test("returns the provided word, reversed", () => {
     expect(reverseWord("foo")).toBe("oof");
   });
@@ -87,7 +87,7 @@ describe.only("reverseWord", () => {
   });
 });
 
-describe.only("reverseAllWords", () => {
+describe("reverseAllWords", () => {
   test("reverses a single word in an array", () => {
     expect(reverseAllWords(["jest"])).toEqual(["tsej"]);
   });
@@ -135,7 +135,7 @@ describe.only("getMeanScore", () => {
   });
 });
 
-describe.only("simpleFizzBuzz", () => {
+describe("simpleFizzBuzz", () => {
   test("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
   });
