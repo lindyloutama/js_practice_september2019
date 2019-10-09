@@ -55,14 +55,14 @@ function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   // create an empty array to hold the new array
   let wordsReversed = [];
-  // for loop to loop through al the words of the array
+  // for loop to loop through all the words of the array
   for(let i in words){
   // split each word in the array, reverse each word in the way, and join them back together
   let word = words[i].split("").reverse().join("");
   // push the words to the end of the array and return as a new array
     wordsReversed.push(word);
   }
-  // return the new array with reversed words
+  // return the results to the new array
   return wordsReversed;
 }
 
@@ -84,11 +84,10 @@ function getMeanScore(scores) {
   let getScore = 0;
   for (let key in scores){
     getScore += scores[key];
-    getScore++;
+    getMean++;
   }
-  let total = getMean/getScore;
-  return + total.toFixed(2); // unable to return to 2 decimal places
-  // unable to return the mean score from an array of scores
+  let total = getScore/getMean;
+  return +total.toFixed(2); 
 }
 
 function simpleFizzBuzz(n) {
