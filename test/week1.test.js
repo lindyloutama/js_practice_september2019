@@ -47,7 +47,7 @@ describe("addVAT", () => {
   });
 });
 
-describe.only("getSalePrice", () => {
+describe("getSalePrice", () => {
   test("reduces a price of 100 by 50%", () => {
     expect(getSalePrice(100, 50)).toBe(50);
   });
@@ -99,7 +99,7 @@ describe("reverseAllWords", () => {
   });
 });
 
-describe.only("countLinuxUsers", () => {
+describe("countLinuxUsers", () => {
   test("returns 0 if no Linux users found", () => {
     const users = [
       { name: "Heather", OS: "Windows 8", type: "Windows" },
@@ -124,7 +124,7 @@ describe.only("countLinuxUsers", () => {
   });
 });
 
-describe.only("getMeanScore", () => {
+describe("getMeanScore", () => {
   test("returns the mean score from an array of scores", () => {
     expect(getMeanScore([8, 9, 7])).toBe(8);
     expect(getMeanScore([88, 86, 93])).toBe(89);
