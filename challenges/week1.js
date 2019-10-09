@@ -21,18 +21,14 @@ function addVAT(originalPrice, vatRate) {
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // get the original price 
-  // get the reduction
-  // minus the reduction from original price
-  // get new price
+    let discount = originalPrice - ((reduction/100) * originalPrice).toFixed(2);
+      return discount;
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-// create variable to hold odd number character
   let position;
   let length;
-
   if(str.length % 2 == 1) {
       position = str.length / 2;
       length = 1;
@@ -45,37 +41,29 @@ function getMiddleCharacter(str) {
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  // split string, reverse string and rejoin string to a new array.
    let splitString = word.split("").reverse().join("");
-  // return the results of the new array
     return splitString; 
 }
 
 function reverseAllWords(words) {
-  if (words === undefined) throw new Error("words is required");
-  // create an empty array to hold the new array
+ if (words === undefined) throw new Error("words is required");
   let wordsReversed = [];
-  // for loop to loop through all the words of the array
-  for(let i in words){
-  // split each word in the array, reverse each word in the way, and join them back together
+   for(let i in words){
   let word = words[i].split("").reverse().join("");
-  // push the words to the end of the array and return as a new array
-    wordsReversed.push(word);
+   wordsReversed.push(word);
   }
-  // return the results to the new array
-  return wordsReversed;
+ return wordsReversed;
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");   
   let result = 0;
-  for(let k in users) {
-    if (countLinuxUsers.hasOwnProperty(users)) {
+  for(let key in users) {
+    if(users[key].type === "Linux") {
       result++;
     }
   }
-  return result; // not returning the correct number of Linux users found :(
-
+  return result
 } 
 
 function getMeanScore(scores) {
@@ -87,7 +75,7 @@ function getMeanScore(scores) {
     getMean++;
   }
   let total = getScore/getMean;
-  return +total.toFixed(2); 
+  return + total.toFixed(2); 
 }
 
 function simpleFizzBuzz(n) {
