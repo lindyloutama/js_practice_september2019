@@ -6,7 +6,7 @@ const {
   duplicateNumbers
 } = require("../challenges/week3");
 
-describe("camelCaseWords", () => {
+describe.only("camelCaseWords", () => {
   test("camel cases a single word (i.e. no capital letter at beginning)", () => {
     expect(camelCaseWords(["my"])).toBe("my");
   });
@@ -25,7 +25,7 @@ describe("camelCaseWords", () => {
   });
 });
 
-describe("getSquares", () => {
+describe.only("getSquares", () => {
   test("returns an empty array if empty array passed", () => {
     expect(getSquares([])).toEqual([]);
   });
@@ -46,28 +46,52 @@ describe("getSquares", () => {
 
 describe("getTotalSubjects", () => {
   test("returns 0 if no people have subjects", () => {
-    const people = [
-      { name: "Billy", subjects: [] },
-      { name: "Claude", subjects: [] },
-      { name: "Aneeta", subjects: [] }
+    const people = [{
+        name: "Billy",
+        subjects: []
+      },
+      {
+        name: "Claude",
+        subjects: []
+      },
+      {
+        name: "Aneeta",
+        subjects: []
+      }
     ];
     expect(getTotalSubjects(people)).toBe(0);
   });
 
   test("returns 1 if 1 person has a subject", () => {
-    const people = [
-      { name: "Billy", subjects: [] },
-      { name: "Claude", subjects: ["chemistry"] },
-      { name: "Aneeta", subjects: [] }
+    const people = [{
+        name: "Billy",
+        subjects: []
+      },
+      {
+        name: "Claude",
+        subjects: ["chemistry"]
+      },
+      {
+        name: "Aneeta",
+        subjects: []
+      }
     ];
     expect(getTotalSubjects(people)).toBe(1);
   });
 
   test("returns the correct number of subjects studied in total for all people", () => {
-    const people = [
-      { name: "Billy", subjects: ["welsh", "spanish"] },
-      { name: "Claude", subjects: ["chemistry", "biology", "music"] },
-      { name: "Aneeta", subjects: ["physics", "maths", "computing", "music"] }
+    const people = [{
+        name: "Billy",
+        subjects: ["welsh", "spanish"]
+      },
+      {
+        name: "Claude",
+        subjects: ["chemistry", "biology", "music"]
+      },
+      {
+        name: "Aneeta",
+        subjects: ["physics", "maths", "computing", "music"]
+      }
     ];
     expect(getTotalSubjects(people)).toBe(9);
   });
@@ -75,8 +99,7 @@ describe("getTotalSubjects", () => {
 
 describe("checkIngredients", () => {
   test("returns false if no menu items include the specified ingredient", () => {
-    const menu = [
-      {
+    const menu = [{
         name: "tofu fritters",
         ingredients: ["tofu", "egg yolk", "breadbrumbs", "paprika"]
       },
@@ -104,8 +127,7 @@ describe("checkIngredients", () => {
   });
 
   test("returns true if a menu item includes the specified ingredient", () => {
-    const menu = [
-      {
+    const menu = [{
         name: "tofu fritters",
         ingredients: ["tofu", "egg yolk", "breadbrumbs", "paprika"]
       },
