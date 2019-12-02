@@ -1,4 +1,4 @@
-const findNextNumber = (nums, n) => {
+/*const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
   // Your code here!
@@ -11,7 +11,7 @@ const count1sand0s = str => {
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  
 };
 
 const sumArrays = arrs => {
@@ -44,3 +44,4 @@ module.exports = {
   findNeedle,
   getWordFrequencies
 };
+*/

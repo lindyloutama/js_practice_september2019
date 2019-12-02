@@ -4,10 +4,11 @@ function camelCaseWords(words) {
    for(let i = 1; i < words.length; i++) {
      const word = words[i];
       const capital = word[0].toUpperCase() + word.slice(1);
-       camel.push(capital);
+      camel = camel.push(capital).join("");
    }
-   return camel.join("");
+   return camel
 }
+
   function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
     const squares = [];
@@ -15,22 +16,33 @@ function camelCaseWords(words) {
      const square = Math.pow(nums[i], 2);
       squares.push(square);
     }
-   return squares;
+   return squares
 }
 
   function getTotalSubjects(people) {
     if (people === undefined) throw new Error("people is required");
-     const nosubject = [];
-     const subjects = people.subject;
-      for(let i = 0; i < people.subject.length; i++) {
-        
+    let count = 0;
+    for (i = 0; i < people.length; i++) {
+      for (let key in people[i]) {
+        const value = people[i][key]
+        if (key === "subjects") {
+          count = count + value.length
+        }
       }
+    }
+    return count;
   }
 
   function checkIngredients(menu, ingredient) {
     if (menu === undefined) throw new Error("menu is required");
     if (!ingredient) throw new Error("ingredient is required");
-    // Your code here!
+     const ingredientsFound = false;
+     for (let i = 0; i < menu.length; i++) {
+      if (menu[i].ingredients.includes(ingredient)) {
+        ingredientsFound = true;
+      }
+    }
+    return ingredientsFound
   }
 
   function duplicateNumbers(arr1, arr2) {

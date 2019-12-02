@@ -1,6 +1,6 @@
-function findSmallNums(nums) {
+/*function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  
 }
 
 function findNamesBeginningWith(names, char) {
@@ -50,3 +50,4 @@ module.exports = {
   findSentencesContaining,
   getLongestSides
 };
+*/

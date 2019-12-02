@@ -1,4 +1,4 @@
-const {
+/*const {
   findSmallNums,
   findNamesBeginningWith,
   findVerbs,
@@ -163,3 +163,4 @@ describe("getLongestSides", () => {
     expect(getLongestSides(data2)).toEqual([7, 9, 6, 13, 12]);
   });
 });
+*/
