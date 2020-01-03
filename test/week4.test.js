@@ -1,4 +1,4 @@
-/*const {
+const {
   findSmallNums,
   findNamesBeginningWith,
   findVerbs,
@@ -9,7 +9,7 @@
   getLongestSides
 } = require("../challenges/week4");
 
-describe("findSmallNums", () => {
+describe.only("findSmallNums", () => {
   test("returns an array of numbers smaller than 1", () => {
     expect(findSmallNums([8, 1, 1.3, 0.9, 0.4, -1])).toEqual([0.9, 0.4, -1]);
     expect(findSmallNums([-7, -243])).toEqual([-7, -243]);
@@ -163,4 +163,3 @@ describe("getLongestSides", () => {
     expect(getLongestSides(data2)).toEqual([7, 9, 6, 13, 12]);
   });
 });
-*/

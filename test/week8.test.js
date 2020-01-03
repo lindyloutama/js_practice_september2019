@@ -1,4 +1,4 @@
-/*const {
+const {
   findNextNumber,
   count1sand0s,
   reverseNumber,
@@ -179,4 +179,3 @@ describe("getWordFrequencies", () => {
     });
   });
 });
-*/
