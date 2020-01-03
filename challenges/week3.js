@@ -48,7 +48,25 @@ function camelCaseWords(words) {
   function duplicateNumbers(arr1, arr2) {
     if (arr1 === undefined) throw new Error("arr1 is required");
     if (arr2 === undefined) throw new Error("arr2 is required");
-    // Your code here!
+      let newArray = [];
+        for(let i = 0; i < arr1.length; i++) {
+          for(let j = 0; j < arr2.length; j++) {
+            if (arr1[i] === arr2[j]) {
+              if (newArray.indexOf(arr2[j])=== -1) {
+                newArray.push(arr1[i]);
+              }
+            }
+          }
+        }
+      let otherArray = [];
+      let thisArray = newArray.length;
+        for (let k = 0; k < thisArray; k++) {
+          let min = Math.min(...newArray);
+            otherArray.push(min);
+          let pos = newArray.indexOf(min);
+          newArray.splice(pos, 1);
+        }
+      return otherArray;
   }
 
   module.exports = {
