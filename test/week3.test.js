@@ -1,6 +1,6 @@
 const {
-  getSquares,
   camelCaseWords,
+  getSquares,
   getTotalSubjects,
   checkIngredients,
   duplicateNumbers

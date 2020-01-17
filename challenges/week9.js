@@ -6,6 +6,14 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  if (!Array.isArray(arr)) throw new Error("An Array is required");
+  let sum = 0;
+  arr.forEach(n => {
+    if (n % 3 === 0 || n % 5 === 0) {
+      sum += n;
+    }
+  });
+  return sum;
 };
 
 /**
@@ -15,6 +23,11 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (typeof (str) !== 'string') throw new Error("str is required")
+  if (str === "") return false;
+
+  let newStr = str.replace(/C|A|G|T/gi, '');
+  return newStr.length === 0;
 };
 
 /**
@@ -24,6 +37,16 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (typeof (str) !== 'string') throw new Error("str is required")
+  if (!isValidDNA(str)) throw new Error("valid sequence is required");
+
+  let newStr = str.replace(/A/gi, 'Z');
+  newStr = newStr.replace(/T/gi, 'A');
+  newStr = newStr.replace(/Z/gi, 'T');
+  newStr = newStr.replace(/C/gi, 'X');
+  newStr = newStr.replace(/G/gi, 'C');
+  newStr = newStr.replace(/X/gi, 'G');
+  return newStr;
 };
 
 /**
@@ -33,7 +56,20 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  if (n === 1) {
+    return false;
+  } else if (n === 2) {
+    return true;
+  } else {
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
 };
+
 
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
@@ -49,7 +85,17 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  let arr = [];
+  for (let i = 0; i < n; i++) {
+    let inArr = [];
+    for (let j = 0; j < n; j++) {
+      inArr.push(fill);
+    }
+    arr.push(inArr);
+  }
+  return arr;
 };
+
 
 /**
  * This function takes an array of staff objects in the format:
@@ -66,6 +112,19 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (staff.length === 0) {
+    return false;
+  }
+  let count = 0;
+  for (let i = 0; i < staff.length; i++) {
+    let rota = staff[i].rota;
+    rota.forEach(d => {
+      if (d === day) {
+        count++;
+      }
+    });
+  }
+  return count >= 3 ? true : false;
 };
 
 module.exports = {

@@ -1,10 +1,16 @@
 /**
  * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
- * @param {Number} n
+ * @param {6} n
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  let total = 0;
+  for (let i = 1; i <= n; i++) {
+    total += i;
+  }
+  return total;
 };
+
 
 /**
  * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
@@ -17,6 +23,14 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  const range = []
+  if (step === undefined) {
+    step = 1;
+  }
+  for (let i = start; i <= end; i = i + step) {
+    range.push(parseFloat(i));
+  }
+  return range
 };
 
 /**
@@ -51,6 +65,21 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  let usersScreenTime = []
+  users.forEach(user => {
+    user.screenTime.forEach(sTime => {
+      if (sTime.date === date) {
+        let totalScreenT = 0;
+        Object.keys(sTime.usage).forEach(usageType => {
+          totalScreenT += sTime.usage[usageType]
+        })
+        if (totalScreenT >= 100) {
+          usersScreenTime.push(user.username);
+        }
+      }
+    })
+  })
+  return usersScreenTime;
 };
 
 /**
@@ -65,6 +94,8 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  hexStr = hexStr.replace('#', '').match(/.{1,2}/g);
+  return hexStr ? `rgb(${parseInt(hexStr[0], 16)},${parseInt(hexStr[1], 16)},${parseInt(hexStr[2], 16)})` : null;
 };
 
 /**
@@ -79,6 +110,25 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  if (board[0].every((val, i, arr) => val === arr[0])) {
+    return board[0][0];
+  } else if (board[1].every((val, i, arr) => val === arr[0])) {
+    return board[1][0];
+  } else if (board[2].every((val, i, arr) => val === arr[0])) {
+    return board[2][0];
+  } else if (board[0][0] === board[1][0] && board[2][0] === board[1][0]) {
+    return board[0][0];
+  } else if (board[0][1] === board[1][1] && board[2][1] === board[1][1]) {
+    return board[0][1];
+  } else if (board[0][2] === board[1][2] && board[2][2] === board[1][2]) {
+    return board[0][2];
+  } else if (board[0][0] === board[1][1] && board[2][2] === board[1][1]) {
+    return board[0][0];
+  } else if (board[0][2] === board[1][1] && board[2][0] === board[1][0]) {
+    return board[0][2];
+  } else {
+    return null;
+  }
 };
 
 module.exports = {
