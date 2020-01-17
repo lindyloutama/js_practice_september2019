@@ -34,7 +34,7 @@ describe("count1sand0s", () => {
       1: 2,
       0: 3
     });
-
+    
     expect(count1sand0s("0101010111")).toEqual({
       1: 6,
       0: 4
@@ -63,7 +63,13 @@ describe("reverseNumber", () => {
 
 describe("sumArrays", () => {
   test("returns the total of the numbers in all sub arrays", () => {
-    const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
+    const arrs = [
+      [1, 2, 3],
+      [6, 3, 1],
+      [1],
+      [9, 10],
+      [3, 5]
+    ];
     expect(sumArrays(arrs)).toBe(44);
   });
 });
